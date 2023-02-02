@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react'
-import Card from './components/Card'
 import Movies from './components/Movies'
 import movieData from './movieData'
 
