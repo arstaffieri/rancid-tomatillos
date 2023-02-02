@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react'
+import Card from './components/Card'
 import Movies from './components/Movies'
 import movieData from './movieData'
 
@@ -14,6 +15,8 @@ class App extends React.Component {
   render() {
     return (
       <main className="App">
+        <h1>Reel Laughs Movie Database</h1>
+        <Movies movies={this.state.movies}/>
       </main>
     );
   }

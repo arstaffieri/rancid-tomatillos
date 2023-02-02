@@ -3,7 +3,8 @@ import './Movies.css'
 
 
 
-const Movies = () => {
+const Movies = (props) => {
+    console.log(props.movies)
     return (
         console.log('this')
     )
