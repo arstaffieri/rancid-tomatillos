@@ -2,9 +2,14 @@ import React from "react";
 import './Card.css'
 
 
-const Card = () => {
+const Card = ({ title, poster, id }) => {
     return (
-        console.log('stuff')
+        <img 
+        className="poster-card"
+        src={poster}
+        alt={title}
+        key={id}
+        />
     )
 }
 
