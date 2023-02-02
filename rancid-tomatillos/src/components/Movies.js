@@ -5,8 +5,6 @@ import Card from "./Card";
 
 
 const Movies = (props) => {
-    console.log(props)
-
     const moviePoster = props.movies.movies.map((movies) => {
         return (
             <Card 
@@ -18,7 +16,7 @@ const Movies = (props) => {
         )
     }) 
     return (
-        <div>
+        <div className="movie-container">
             {moviePoster}
         </div>
     )

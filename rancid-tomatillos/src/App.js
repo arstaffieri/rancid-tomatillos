@@ -13,8 +13,10 @@ class App extends React.Component {
   }
   render() {
     return (
-      <main className="App">
-        <h1>Reel Laughs Movie Database</h1>
+      <main className="main-page">
+        <div className='main-page-header'>
+          <h1>Reel Laughs Movie Database</h1>
+        </div>
         <Movies movies={this.state.movies}/>
       </main>
     );
