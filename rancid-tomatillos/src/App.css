@@ -9,6 +9,7 @@ body,
     width: 100vw;
     padding: 0;
     margin: 0;
+    background-color: black;
 }
 
 .main-page-header {
@@ -24,4 +25,5 @@ h1 {
     padding: 0;
     margin: 0;
     font-family: 'Limelight', cursive;
+    color: rgba(255, 254, 254, 0.519);
 }
