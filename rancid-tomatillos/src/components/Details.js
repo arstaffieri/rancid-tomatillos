@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './Details.css'
 
 class Details extends React.Component {
@@ -51,7 +52,13 @@ class Details extends React.Component {
                     <p>Budget:{this.state.singleMovie.budget}</p>
                     <p>Revenue: {this.state.singleMovie.revenue}</p>
                 </section>
+                <NavLink to='/'>
+                    <div className='button-wrapper'>
+                        <button className='home-button'>Back To Home</button>
+                    </div>
+                </NavLink>
             </div>
+
         )
     }
        
