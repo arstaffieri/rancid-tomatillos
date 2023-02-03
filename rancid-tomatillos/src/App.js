@@ -9,25 +9,42 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-          movies: movieData,
+          movies: [],
           errors: ''
     }
   }
+
+  componentDidMount() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then((response) => {
+      if(!response.ok) {
+        throw new Error("There has been a problem.")
+      } else {
+        return response.json()
+      }
+    })
+    .then((data) => {
+      this.setState({
+        movies: data.movies
+      })
+    })
+        .catch((error) => {
+          this.setState({
+            error: error.message
+          })
+    })
+  }
+
   render() {
     return (
       <main className="main-page">
         <div className='main-page-header'>
           <h1>Reel Laughs Movie Database</h1>
         </div>
-        <Routes>
-          <Route exact path="/" render={() => <Movies movies={this.state.movies} />}/>
-          {/* <Route 
-          exact path='/id'
-          render={() => (
-            <Details />
-          )}
-          /> */}
-        </Routes>
+        
+         <Movies movies={this.state.movies}/>
+        
+        
         
       </main>
     );
