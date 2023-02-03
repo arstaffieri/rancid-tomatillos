@@ -10,6 +10,7 @@ class Details extends React.Component {
         }
 
     }
+    
     componentDidMount() {
         fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.movieID}`)
         .then((response) => {
@@ -30,11 +31,19 @@ class Details extends React.Component {
             })
         
     })
+    
 }
+
     render() {
         return(
-            <div>
-                console.log(this.state.singleMovie)
+            <div className="single-movie-details">
+                <section className="single-movie-image">
+                    <img 
+                        src={this.state.singleMovie.backdrop_path} alt={this.state.singleMovie.title}
+                    />
+                    <h2>{this.state.singleMovie.title}</h2>
+                </section>
+                
             </div>
         )
     }
