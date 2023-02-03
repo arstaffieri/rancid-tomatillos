@@ -1,9 +1,8 @@
 import './App.css';
 import React from 'react'
 import Movies from './components/Movies'
-import movieData from './movieData'
-// import Details from './components/Details';
-import { Route, Routes } from 'react-router-dom'
+import Details from './components/Details';
+import { Route } from 'react-router-dom'
 
 class App extends React.Component {
   constructor() {
@@ -41,8 +40,14 @@ class App extends React.Component {
         <div className='main-page-header'>
           <h1>Reel Laughs Movie Database</h1>
         </div>
+        <React.Fragment>
+          <Route exact path='/' render={() => <Movies movies={this.state.movies} />}></Route>
+          
+          
+
+        </React.Fragment>
         
-         <Movies movies={this.state.movies}/>
+         
         
         
         
