@@ -42,9 +42,11 @@ class App extends React.Component {
         </div>
         <React.Fragment>
           <Route exact path='/' render={() => <Movies movies={this.state.movies} />}></Route>
-          
-          
-
+          <Route exact path='/:movieId' render={({ match }) => {
+            return(<Details movieID={match.params.movieId}/>)
+          }}
+          ></Route>
+        
         </React.Fragment>
         
          

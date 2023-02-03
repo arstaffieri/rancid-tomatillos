@@ -11,7 +11,7 @@ class Details extends React.Component {
 
     }
     componentDidMount() {
-        fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.singleMovieID}`)
+        fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.movieID}`)
         .then((response) => {
             if(!response.ok) {
                 throw new Error("There has been a problem.")
@@ -34,7 +34,7 @@ class Details extends React.Component {
     render() {
         return(
             <div>
-                <p>Hi</p>
+                console.log(this.state.singleMovie)
             </div>
         )
     }
