@@ -1,15 +1,36 @@
 import React from 'react'
 import './Details.css'
-import movieData from '../movieData.js'
 
 class Details extends React.Component {
     constructor() {
         super()
         this.state = {
-            movie: movieData
+            singleMovie: {},
+            error: ''
         }
 
     }
+    componentDidMount() {
+        fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.singleMovieID}`)
+        .then((response) => {
+            if(!response.ok) {
+                throw new Error("There has been a problem.")
+              } else {
+                return response.json()
+              }
+            })
+        .then((data) => {
+            this.setState({
+                singleMovie: data.movie
+            })
+        })
+        .catch((error) => {
+            this.setState({
+              error: error.message
+            })
+        
+    })
+}
     render() {
         return(
             <div>
