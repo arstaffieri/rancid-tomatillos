@@ -38,10 +38,10 @@ class Details extends React.Component {
         return(
             <div className="single-movie-details">
                 <section className="single-movie-image">
-                    <img 
+                    <h2 className='single-movie-title'>{this.state.singleMovie.title}</h2>
+                    <img className="movie-image"
                         src={this.state.singleMovie.backdrop_path} alt={this.state.singleMovie.title}
                     />
-                    <h2>{this.state.singleMovie.title}</h2>
                 </section>
                 <section className='single-movie-info'>
                     <p>{this.state.singleMovie.overview}</p>
@@ -50,7 +50,6 @@ class Details extends React.Component {
                     <p>Run Time: {this.state.singleMovie.runtime}</p>
                     <p>Budget:{this.state.singleMovie.budget}</p>
                     <p>Revenue: {this.state.singleMovie.revenue}</p>
-                    <p>Genre: {this.state.singleMovie.genre}</p>
                 </section>
                 
             </div>
