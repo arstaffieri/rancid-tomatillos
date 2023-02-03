@@ -1,18 +1,21 @@
 import React from "react";
 import './Card.css'
-import { Link } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 
-const Card = ({ title, poster, id }) => {
+
+const Card = ({ id, title, poster }) => {
     return (
-        <Link to={id} key={id}>
+        <NavLink to={`/${id}`} key={id} className="poster-container">
             <img 
             className="poster-card"
             src={poster}
             alt={title}
             key={id}
-        />
-        </Link>
+            />
+        </NavLink>
+
+        
     )
 }
 
