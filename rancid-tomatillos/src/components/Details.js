@@ -43,6 +43,15 @@ class Details extends React.Component {
                     />
                     <h2>{this.state.singleMovie.title}</h2>
                 </section>
+                <section className='single-movie-info'>
+                    <p>{this.state.singleMovie.overview}</p>
+                    <p>Average Rating: {this.state.singleMovie.average_rating}</p>
+                    <p>Release Date: {this.state.singleMovie.release_date}</p>
+                    <p>Run Time: {this.state.singleMovie.runtime}</p>
+                    <p>Budget:{this.state.singleMovie.budget}</p>
+                    <p>Revenue: {this.state.singleMovie.revenue}</p>
+                    <p>Genre: {this.state.singleMovie.genre}</p>
+                </section>
                 
             </div>
         )
