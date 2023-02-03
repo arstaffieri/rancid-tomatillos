@@ -6,6 +6,13 @@
     align-items: flex-start;
 }
 
+.single-movie-image {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
 .movie-image {
     width: 500px;
     height: 700px;
@@ -21,5 +28,9 @@
 .single-movie-info {
     font-family: 'Limelight', cursive;
     color: rgba(255, 254, 254, 0.519);
+    padding: 20px;
+    margin-top: 38px;
+    height: 100%;
+    width: 50%;
 
 }

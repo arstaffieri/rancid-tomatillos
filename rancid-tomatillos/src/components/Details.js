@@ -47,11 +47,10 @@ class Details extends React.Component {
                     <p>{this.state.singleMovie.overview}</p>
                     <p>Average Rating: {this.state.singleMovie.average_rating}</p>
                     <p>Release Date: {this.state.singleMovie.release_date}</p>
-                    <p>Run Time: {this.state.singleMovie.runtime}</p>
+                    <p>Run Time: {this.state.singleMovie.runtime} Minutes</p>
                     <p>Budget:{this.state.singleMovie.budget}</p>
                     <p>Revenue: {this.state.singleMovie.revenue}</p>
                 </section>
-                
             </div>
         )
     }
