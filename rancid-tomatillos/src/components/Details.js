@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Details.css'
 import { getSingleMovie } from '../apiCalls'
+import * as dayjs from "dayjs";
 
 class Details extends React.Component {
     constructor() {
@@ -48,7 +49,7 @@ class Details extends React.Component {
                 <section className='single-movie-info'>
                     <p>{this.state.singleMovie.overview}</p>
                     <p>Average Rating: {this.changeReview()} out of 10 Stars</p>
-                    <p>Release Date: {this.state.singleMovie.release_date}</p>
+                    <p>Release Date: {dayjs(this.state.singleMovie.release_date).format('MM/DD/YYYY')}</p>
                     <p>Run Time: {this.state.singleMovie.runtime} Minutes</p>
                     <p>Budget:{this.state.singleMovie.budget}</p>
                     <p>Revenue: {this.state.singleMovie.revenue}</p>
