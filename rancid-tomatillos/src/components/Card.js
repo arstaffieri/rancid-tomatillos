@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const Card = ({ id, title, poster }) => {
     return (
-        <NavLink to={`/${id}`} key={id} className="poster-container">
+        <NavLink to={`/movies/${id}`} key={id} className="poster-container">
             <img 
             className="poster-card"
             src={poster}

@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Details.css'
+import { getSingleMovie } from '../apiCalls'
+import * as dayjs from "dayjs";
 
 class Details extends React.Component {
     constructor() {
@@ -13,14 +15,7 @@ class Details extends React.Component {
     }
     
     componentDidMount() {
-        fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.movieID}`)
-        .then((response) => {
-            if(!response.ok) {
-                throw new Error("There has been a problem.")
-              } else {
-                return response.json()
-              }
-            })
+        getSingleMovie(this.props.movieID)
         .then((data) => {
             this.setState({
                 singleMovie: data.movie
@@ -34,8 +29,19 @@ class Details extends React.Component {
     })
     
 }
+    changeReview = () => {
+        let stars = ''
+        for(let i = 0; i < this.state.singleMovie.average_rating; i++) {
+            stars += '🌟'
+        }
+        return stars
+    }
 
     render() {
+        const formatter = new Intl.NumberFormat('en-US', {
+            style:'currency',
+            currency:'USD'
+        })
         return(
             <div className="single-movie-details">
                 <section className="single-movie-image">
@@ -46,11 +52,18 @@ class Details extends React.Component {
                 </section>
                 <section className='single-movie-info'>
                     <p>{this.state.singleMovie.overview}</p>
-                    <p>Average Rating: {this.state.singleMovie.average_rating}</p>
-                    <p>Release Date: {this.state.singleMovie.release_date}</p>
+                    <p>Average Rating: {this.changeReview()} out of 10 Stars</p>
+                    <p>Release Date: {dayjs(this.state.singleMovie.release_date).format('MM/DD/YYYY')}</p>
                     <p>Run Time: {this.state.singleMovie.runtime} Minutes</p>
-                    <p>Budget:{this.state.singleMovie.budget}</p>
-                    <p>Revenue: {this.state.singleMovie.revenue}</p>
+                    {this.state.singleMovie.budget <= 0 ? (
+                        <p>Budget: No Budget Info</p>
+                    ):(<p>Budget: {formatter.format(this.state.singleMovie.budget)}</p>
+                    )}
+                    {this.state.singleMovie.revenue <= 0 ? (
+                        <p>Revenue: No Revenue Info</p>
+                    ): (<p>Revenue: {formatter.format(this.state.singleMovie.revenue)}</p>)
+                }
+                    
                 </section>
                 <NavLink to='/'>
                     <div className='button-wrapper'>

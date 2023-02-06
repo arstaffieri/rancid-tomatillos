@@ -5,4 +5,9 @@
     margin-right: 25px;
     box-shadow: rgba(255, 254, 254, 0.519) 0px 54px 55px, rgb(255, 254, 254, 0.519) 0px -12px 30px, rgba(255, 254, 254, 0.519) 0px 4px 6px, rgba(255, 254, 254, 0.519) 0px 12px 13px, rgba(255, 254, 254, 0.519) 0px -3px 5px;
     border: 2px rgba(255, 254, 254, 0.519) solid;
+    transition: all .2s ease-in-out;
+}
+
+.poster-card:hover {
+    transform: scale(1.1);
 }

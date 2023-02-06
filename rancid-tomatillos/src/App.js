@@ -3,33 +3,32 @@ import React from 'react'
 import Movies from './components/Movies'
 import Details from './components/Details';
 import { Route } from 'react-router-dom'
+import { getAllMovies } from './apiCalls'
+import loadingSpinner from './loading.gif'
+import Error from './components/Error';
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
           movies: [],
-          errors: ''
+          errors: '',
+          isLoading: false
     }
   }
 
   componentDidMount() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then((response) => {
-      if(!response.ok) {
-        throw new Error("There has been a problem.")
-      } else {
-        return response.json()
-      }
-    })
+    this.setState({isLoading: true})
+    getAllMovies()
     .then((data) => {
       this.setState({
-        movies: data.movies
+        movies: data.movies,
+        isLoading: false
       })
     })
         .catch((error) => {
           this.setState({
-            error: error.message
+            errors: error.message
           })
     })
   }
@@ -40,12 +39,27 @@ class App extends React.Component {
         <div className='main-page-header'>
           <h1>Reel Laughs Movie Database</h1>
         </div>
+        {this.state.errors && ( 
+          <h2 className='error-message'>{this.state.errors}</h2>
+        )}
+        {this.state.isLoading && (
+          <div className='loading-container'>
+            <img 
+            className='loading-message'
+            src={loadingSpinner}
+            alt="Loading"
+            />
+          </div>
+        )}
         <React.Fragment>
           <Route exact path='/' render={() => <Movies movies={this.state.movies} />}></Route>
-          <Route exact path='/:movieId' render={({ match }) => {
+          <Route exact path='/movies/:movieId' render={({ match }) => {
             return(<Details movieID={match.params.movieId}/>)
           }}
           ></Route>
+          <Route exact path='/*' render={() => <Error />}>
+
+          </Route>
         
         </React.Fragment>
         
