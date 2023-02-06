@@ -1,5 +1,5 @@
 const getAllMovies = () => {
-    return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movie')
     .then((response) => {
       if(!response.ok) {
         throw new Error("There has been a problem.")

@@ -23,7 +23,7 @@ class App extends React.Component {
     })
         .catch((error) => {
           this.setState({
-            error: error.message
+            errors: error.message
           })
     })
   }
@@ -34,6 +34,9 @@ class App extends React.Component {
         <div className='main-page-header'>
           <h1>Reel Laughs Movie Database</h1>
         </div>
+        {this.state.errors && ( 
+          <h2 className='error-message'>{this.state.errors}</h2>
+        )}
         <React.Fragment>
           <Route exact path='/' render={() => <Movies movies={this.state.movies} />}></Route>
           <Route exact path='/:movieId' render={({ match }) => {
