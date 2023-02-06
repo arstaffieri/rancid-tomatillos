@@ -3,6 +3,7 @@ import React from 'react'
 import Movies from './components/Movies'
 import Details from './components/Details';
 import { Route } from 'react-router-dom'
+import { getAllMovies, getSingleMovie } from './apiCalls'
 
 class App extends React.Component {
   constructor() {
@@ -14,14 +15,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then((response) => {
-      if(!response.ok) {
-        throw new Error("There has been a problem.")
-      } else {
-        return response.json()
-      }
-    })
+    getAllMovies()
     .then((data) => {
       this.setState({
         movies: data.movies
