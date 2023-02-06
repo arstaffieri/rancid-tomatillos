@@ -38,6 +38,10 @@ class Details extends React.Component {
     }
 
     render() {
+        const formatter = new Intl.NumberFormat('en-US', {
+            style:'currency',
+            currency:'USD'
+        })
         return(
             <div className="single-movie-details">
                 <section className="single-movie-image">
@@ -51,8 +55,15 @@ class Details extends React.Component {
                     <p>Average Rating: {this.changeReview()} out of 10 Stars</p>
                     <p>Release Date: {dayjs(this.state.singleMovie.release_date).format('MM/DD/YYYY')}</p>
                     <p>Run Time: {this.state.singleMovie.runtime} Minutes</p>
-                    <p>Budget:{this.state.singleMovie.budget}</p>
-                    <p>Revenue: {this.state.singleMovie.revenue}</p>
+                    {this.state.singleMovie.budget <= 0 ? (
+                        <p>Budget: No Budget Info</p>
+                    ):(<p>Budget: {formatter.format(this.state.singleMovie.budget)}</p>
+                    )}
+                    {this.state.singleMovie.revenue <= 0 ? (
+                        <p>Revenue: No Revenue Info</p>
+                    ): (<p>Revenue: {formatter.format(this.state.singleMovie.revenue)}</p>)
+                }
+                    
                 </section>
                 <NavLink to='/'>
                     <div className='button-wrapper'>
