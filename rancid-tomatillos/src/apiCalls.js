@@ -9,8 +9,8 @@ const getAllMovies = () => {
     })
 }
 
-const getSingleMovie = () => {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.movieID}`)
+const getSingleMovie = (movieID) => {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`)
     .then((response) => {
         if(!response.ok) {
             throw new Error("There has been a problem.")
@@ -20,4 +20,4 @@ const getSingleMovie = () => {
         })
 }
 
-export { getAllMovies, getSingleMovie }
+export { getAllMovies, getSingleMovie}

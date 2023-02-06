@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Details.css'
+import { getSingleMovie } from '../apiCalls'
 
 class Details extends React.Component {
     constructor() {
@@ -13,14 +14,7 @@ class Details extends React.Component {
     }
     
     componentDidMount() {
-        fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.movieID}`)
-        .then((response) => {
-            if(!response.ok) {
-                throw new Error("There has been a problem.")
-              } else {
-                return response.json()
-              }
-            })
+        getSingleMovie(this.props.movieID)
         .then((data) => {
             this.setState({
                 singleMovie: data.movie

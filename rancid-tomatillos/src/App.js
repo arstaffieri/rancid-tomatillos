@@ -3,7 +3,7 @@ import React from 'react'
 import Movies from './components/Movies'
 import Details from './components/Details';
 import { Route } from 'react-router-dom'
-import { getAllMovies, getSingleMovie } from './apiCalls'
+import { getAllMovies } from './apiCalls'
 
 class App extends React.Component {
   constructor() {
