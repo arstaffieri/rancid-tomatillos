@@ -28,6 +28,13 @@ class Details extends React.Component {
     })
     
 }
+    changeReview = () => {
+        let stars = ''
+        for(let i = 0; i < this.state.singleMovie.average_rating; i++) {
+            stars += '🌟'
+        }
+        return stars
+    }
 
     render() {
         return(
@@ -40,7 +47,7 @@ class Details extends React.Component {
                 </section>
                 <section className='single-movie-info'>
                     <p>{this.state.singleMovie.overview}</p>
-                    <p>Average Rating: {this.state.singleMovie.average_rating}</p>
+                    <p>Average Rating: {this.changeReview()} out of 10 Stars</p>
                     <p>Release Date: {this.state.singleMovie.release_date}</p>
                     <p>Run Time: {this.state.singleMovie.runtime} Minutes</p>
                     <p>Budget:{this.state.singleMovie.budget}</p>
