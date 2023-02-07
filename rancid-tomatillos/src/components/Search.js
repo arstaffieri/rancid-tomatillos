@@ -3,10 +3,10 @@ import './Search.css'
 
 
 class Search extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            searchMovies: ''
+            searchMovies: null
         }
     }
 
@@ -21,10 +21,10 @@ class Search extends React.Component {
         return (
             <div>
                 <form 
-                className="search-form"
-                onSubmit={(event) => {
-                    event.preventDefault()
-                    this.props.searchBar(this.state.searchMovies)
+                    className="search-form"
+                    onSubmit={(event) => {
+                    event.preventDefault();
+                    this.props.movieSearch(this.state.searchMovies)
                 }}
                 >
                     <input 

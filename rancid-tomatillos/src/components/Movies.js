@@ -6,9 +6,8 @@ import Card from "./Card";
 
 const Movies = (props) => {
     let globalMovie;
-
     if(props.movieSearch) {
-        globalMovie = props.movies.filter((movie) => movie.title.toLowerCase().includes(props.movieSearch.title.toLowerCase()))
+        globalMovie = props.movies.filter((movie) => movie.title.toLowerCase().includes(props.movieSearch))
     } else {
         globalMovie = props.movies
     }

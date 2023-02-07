@@ -36,7 +36,7 @@ class App extends React.Component {
       });
   }
 
-  searchBar = (value) => {
+  searchData = (value) => {
     this.setState({searchedMovie: value})
   }
 
@@ -46,7 +46,7 @@ class App extends React.Component {
         <div className="main-page-header">
           <h1>Reel Laughs Movie Database</h1>
         </div>
-        <Search movieSearch={this.searchBar}/>
+        <Search movieSearch={this.searchData}/>
         {this.state.errors && (
           <h2 className="error-message">{this.state.errors}</h2>
         )}
