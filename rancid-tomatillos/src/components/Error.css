@@ -1,14 +1,19 @@
 .error-wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
+    flex-direction: column-reverse;
 }
 
 .error-image {
-    height: 500px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
+}
+
+.home-wrapper {
+    margin-left: 40px;
 }
