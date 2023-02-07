@@ -23,7 +23,8 @@ class App extends React.Component {
       .then((data) => {
         this.setState({
           movies: data.movies,
-          isLoading: false,
+          searchedMovie: '',
+          isLoading: false
         });
       })
       .catch((error) => {
@@ -33,12 +34,17 @@ class App extends React.Component {
       });
   }
 
+  searchBar = (value) => {
+    this.setState({searchedMovie: value})
+  }
+
   render() {
     return (
       <main className="main-page">
         <div className="main-page-header">
           <h1>Reel Laughs Movie Database</h1>
         </div>
+        <Search movieSearch={this.searchBar}/>
         {this.state.errors && (
           <h2 className="error-message">{this.state.errors}</h2>
         )}

@@ -10,11 +10,31 @@ class Search extends React.Component {
         }
     }
 
+    handleChange = (event) => {
+        const { name, value } = event.target
+        this.setState({
+            [name]: value
+        })
+    }
+
     render() {
         return (
             <div>
-                <form className="search-form">
-                    <input />
+                <form 
+                className="search-form"
+                onSubmit={(event) => {
+                    event.preventDefault()
+                    this.props.searchBar(this.state.searchMovies)
+                }}
+                >
+                    <input 
+                    className="search-input"
+                    type='text'
+                    name="searchMovies"
+                    placeholder="Search Movies Here"
+                    onChange={this.handleChange}
+                    />
+                    <button className="search-btn">Find</button>
                 </form>
             </div>
         )
