@@ -6,6 +6,10 @@
     align-items: flex-start;
 }
 
+.movie-image {
+  object-fit:cover ;
+}
+
 .single-movie-image {
     display: flex;
     width: 50%;

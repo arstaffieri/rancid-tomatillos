@@ -2,10 +2,10 @@ import "./App.css";
 import React from "react";
 import Movies from "./components/Movies";
 import Details from "./components/Details";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { getAllMovies } from "./apiCalls";
 import loadingSpinner from "./loading.gif";
-// import Error from "./components/Error";
+import Error from "./components/Error";
 
 class App extends React.Component {
   constructor() {
@@ -51,7 +51,7 @@ class App extends React.Component {
             />
           </div>
         )}
-        <React.Fragment>
+        <Switch>
           <Route
             exact
             path="/"
@@ -64,8 +64,8 @@ class App extends React.Component {
               return <Details movieID={match.params.movieId} />;
             }}
           ></Route>
-          {/* <Route exact path="/*" render={() => <Error />}></Route> */}
-        </React.Fragment>
+          <Route exact path="/*" render={() => <Error />}></Route>
+        </Switch>
       </main>
     );
   }

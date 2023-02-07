@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Details.css'
 import { getSingleMovie } from '../apiCalls'
 import * as dayjs from "dayjs";
@@ -65,11 +65,11 @@ class Details extends React.Component {
                 }
                     
                 </section>
-                <NavLink to='/'>
+                <Link to='/'>
                     <div className='button-wrapper'>
                         <button className='home-button'>Back To Home</button>
                     </div>
-                </NavLink>
+                </Link>
             </div>
 
         )
