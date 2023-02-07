@@ -2,10 +2,12 @@ import "./App.css";
 import React from "react";
 import Movies from "./components/Movies";
 import Details from "./components/Details";
+import Search from "./components/Search";
 import { Route, Switch } from "react-router-dom";
 import { getAllMovies } from "./apiCalls";
 import loadingSpinner from "./loading.gif";
 import Error from "./components/Error";
+
 
 class App extends React.Component {
   constructor() {
@@ -61,7 +63,7 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={() => <Movies movies={this.state.movies} />}
+            render={() => <Movies movies={this.state.movies} movieSearch={this.state.searchedMovie} />}
           ></Route>
           <Route
             exact
