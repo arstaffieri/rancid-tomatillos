@@ -16,6 +16,7 @@ class App extends React.Component {
       movies: [],
       errors: "",
       isLoading: false,
+      searchedMovie: ''
     };
   }
 
@@ -25,7 +26,6 @@ class App extends React.Component {
       .then((data) => {
         this.setState({
           movies: data.movies,
-          searchedMovie: '',
           isLoading: false
         });
       })
@@ -40,13 +40,18 @@ class App extends React.Component {
     this.setState({searchedMovie: value})
   }
 
+  resetSearch = () => {
+    this.setState({searchedMovie: ''})
+  }
+
+
   render() {
     return (
       <main className="main-page">
         <div className="main-page-header">
           <h1>Reel Laughs Movie Database</h1>
         </div>
-        <Search movieSearch={this.searchData}/>
+        <Search movieSearch={this.searchData} resetMovies={this.resetSearch} singleMovie={this.state.searchedMovie}/>
         {this.state.errors && (
           <h2 className="error-message">{this.state.errors}</h2>
         )}
@@ -69,7 +74,7 @@ class App extends React.Component {
             exact
             path="/movies/:movieId"
             render={({ match }) => {
-              return <Details movieID={match.params.movieId} />;
+              return <Details movieID={match.params.movieId} resetMovies={this.resetSearch} singleMovie={this.state.searchedMovie}/>;
             }}
           ></Route>
           <Route exact path="/*" render={() => <Error />}></Route>
