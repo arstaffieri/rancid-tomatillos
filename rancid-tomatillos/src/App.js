@@ -16,6 +16,7 @@ class App extends React.Component {
       setMovies: "",
       errors: "",
       isLoading: false,
+      isClicked: false
     };
   }
 
@@ -51,7 +52,15 @@ class App extends React.Component {
     this.setState({ movies: filteredMovies });
   };
 
+  handleErrorClick = (value) => {
+    this.setState({isClicked: value})
+  }
+
+
+
   render() {
+    console.log(this.state)
+    console.log(this.state.setMovies)
     return (
       <main className="main-page">
         <div className="main-page-header">
@@ -96,7 +105,7 @@ class App extends React.Component {
               );
             }}
           ></Route>
-          <Route exact path="/*" render={() => <Error />}></Route>
+          <Route exact path="/*" render={() => <Error clicked={this.handleErrorClick}/>}></Route>
         </Switch>
       </main>
     );
