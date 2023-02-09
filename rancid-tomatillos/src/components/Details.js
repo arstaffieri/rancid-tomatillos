@@ -71,7 +71,7 @@ class Details extends React.Component {
           )}
         </section>
         {!this.props.singleMovie && 
-          <Home />
+          <Home inputMovie={this.props.inputMovie}/>
         }
       </div>
     );

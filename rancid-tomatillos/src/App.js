@@ -57,12 +57,14 @@ class App extends React.Component {
         <div className="main-page-header">
           <h1>Reel Laughs Movie Database</h1>
         </div>
+        {(document.URL === 'http://localhost:3000/' || document.URL.includes('http://localhost:3000/movies/')) && 
         <Link to="/" className="search-movies-link">
           <Search
             searchMovies={this.searchMovies}
             movies={this.state.setMovies}
           />
         </Link>
+        }
         {this.state.errors && (
           <h2 className="error-message">{this.state.errors}</h2>
         )}
@@ -89,6 +91,7 @@ class App extends React.Component {
                 <Details
                   movieID={match.params.movieId}
                   singleMovie={this.state.searchedMovie}
+                  inputMovie={this.state.setMovies}
                 />
               );
             }}
