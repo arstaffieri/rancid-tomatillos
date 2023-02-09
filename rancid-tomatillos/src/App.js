@@ -57,7 +57,7 @@ class App extends React.Component {
         <div className="main-page-header">
           <h1>Reel Laughs Movie Database</h1>
         </div>
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ textDecoration: "none", width: '35px' }}>
           <Search
             searchMovies={this.searchMovies}
             movies={this.state.setMovies}

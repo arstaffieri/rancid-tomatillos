@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 
 const Home = (props) => {
     return (
-        <Link to='/'>
-            <div className='home-wrapper'>
+        <Link to='/' className="home-button-link">
                 <button className='home-button' onClick={props.resetData}>Back To Home</button>
-            </div>
         </Link>
     )
 }
