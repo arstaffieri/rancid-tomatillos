@@ -5,7 +5,14 @@ import Card from "./Card";
 
 
 const Movies = (props) => {
-    const moviePoster = props.movies.map((movies) => {
+    let globalMovie;
+    if(props.movieSearch) {
+        globalMovie = props.movies.filter((movie) => movie.title.toLowerCase().includes(props.movieSearch))
+    } else {
+        globalMovie = props.movies
+    }
+
+    const moviePoster = globalMovie.map((movies) => {
         return (
             <Card 
             title={movies.title}

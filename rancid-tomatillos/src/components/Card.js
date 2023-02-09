@@ -12,6 +12,7 @@ const Card = ({ id, title, poster }) => {
             src={poster}
             alt={title}
             key={id}
+
             />
         </Link>
 
