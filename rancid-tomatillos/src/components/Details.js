@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import "./Details.css";
 import { getSingleMovie } from "../apiCalls";
 import * as dayjs from "dayjs";
@@ -11,6 +10,7 @@ class Details extends React.Component {
     this.state = {
       singleMovie: {},
       error: "",
+      path: ''
     };
   }
 

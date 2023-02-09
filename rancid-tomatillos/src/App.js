@@ -3,20 +3,19 @@ import React from "react";
 import Movies from "./components/Movies";
 import Details from "./components/Details";
 import Search from "./components/Search";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import { getAllMovies } from "./apiCalls";
 import loadingSpinner from "./loading.gif";
 import Error from "./components/Error";
-
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       movies: [],
+      setMovies: "",
       errors: "",
       isLoading: false,
-      searchedMovie: ''
     };
   }
 
@@ -26,7 +25,8 @@ class App extends React.Component {
       .then((data) => {
         this.setState({
           movies: data.movies,
-          isLoading: false
+          setMovies: data.movies,
+          isLoading: false,
         });
       })
       .catch((error) => {
@@ -36,14 +36,20 @@ class App extends React.Component {
       });
   }
 
-  searchData = (value) => {
-    this.setState({searchedMovie: value})
-  }
+  searchMovies = (searchInput) => {
+    const filteredMovies = this.state.setMovies.filter((movie) => {
+      if (searchInput) {
+        return (
+          movie.title.toLowerCase().includes(searchInput) ||
+          movie.title.toUpperCase().includes(searchInput)
+        );
+      } else {
+        return movie;
+      }
+    });
 
-  resetSearch = () => {
-    this.setState({searchedMovie: ''})
-  }
-
+    this.setState({ movies: filteredMovies });
+  };
 
   render() {
     return (
@@ -51,7 +57,12 @@ class App extends React.Component {
         <div className="main-page-header">
           <h1>Reel Laughs Movie Database</h1>
         </div>
-        <Search movieSearch={this.searchData} resetMovies={this.resetSearch} singleMovie={this.state.searchedMovie}/>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <Search
+            searchMovies={this.searchMovies}
+            movies={this.state.setMovies}
+          />
+        </Link>
         {this.state.errors && (
           <h2 className="error-message">{this.state.errors}</h2>
         )}
@@ -68,13 +79,18 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={() => <Movies movies={this.state.movies} movieSearch={this.state.searchedMovie} />}
+            render={() => <Movies movies={this.state.movies} />}
           ></Route>
           <Route
             exact
             path="/movies/:movieId"
             render={({ match }) => {
-              return <Details movieID={match.params.movieId} resetMovies={this.resetSearch} singleMovie={this.state.searchedMovie}/>;
+              return (
+                <Details
+                  movieID={match.params.movieId}
+                  singleMovie={this.state.searchedMovie}
+                />
+              );
             }}
           ></Route>
           <Route exact path="/*" render={() => <Error />}></Route>

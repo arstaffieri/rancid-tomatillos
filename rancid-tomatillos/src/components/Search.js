@@ -1,53 +1,43 @@
 import React from "react";
 import "./Search.css";
-// import { Link } from "react-router-dom";
-import Home from "./Home";
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchMovies: "",
+      inputMovie: "",
     };
   }
 
   handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+    event.preventDefault();
+    this.setState({ value: event.target.value });
+    this.props.searchMovies(this.state.inputMovie);
   };
 
-  resetInput = () => {
-    this.props.resetMovies();
-    this.setState({ searchMovies: "" });
+  handleClick = () => {
+    this.setState({ value: "" });
+    console.log(this.state.inputMovie);
+    this.props.searchMovies("");
   };
 
   render() {
-    console.log(this.state.searchMovies)
     return (
-      <div>
-        <form
-          className="search-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            this.props.movieSearch(this.state.searchMovies);
-          }}
-        >
+      <section className="input-container">
+        <form className="input-box">
           <input
-            className="search-input"
+            className="search-box"
             type="text"
-            name="searchMovies"
-            value={this.state.searchMovies}
-            placeholder="Search Movies Here"
+            placeholder="SEARCH MOVIES"
+            name="inputMovie"
+            value={this.state.inputMovie}
             onChange={this.handleChange}
           />
-          <button className="search-btn">Find</button>
-          {this.props.singleMovie.length > 0 &&
-            <Home resetData={this.resetInput} movieData={this.props.singleMovie}/>
-          }
+          <button className="search-btn" onClick={this.handleClick}>
+            clear
+          </button>
         </form>
-      </div>
+      </section>
     );
   }
 }
