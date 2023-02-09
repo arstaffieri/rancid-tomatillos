@@ -54,4 +54,13 @@ h1 {
   height: 200px;
 }
 
+.search-movies-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 45px;
+  height: 0;
+  text-decoration: none;
+}
+
 
