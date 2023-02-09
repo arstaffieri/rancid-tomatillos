@@ -1,41 +1,39 @@
 import React from "react";
 import "./Search.css";
 
+
 class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputMovie: "",
+      value: "",
     };
   }
 
   handleChange = (event) => {
-    event.preventDefault();
-    this.setState({ value: event.target.value });
-    this.props.searchMovies(this.state.inputMovie);
-  };
+    event.preventDefault()
+    this.setState({value: event.target.value})
+    this.props.searchMovies(this.state.value);
+}
 
   handleClick = () => {
-    this.setState({ value: "" });
-    console.log(this.state.inputMovie);
+    this.setState({value: ""})
     this.props.searchMovies("");
-  };
+  }
 
   render() {
     return (
-      <section className="input-container">
-        <form className="input-box">
-          <input
-            className="search-box"
-            type="text"
-            placeholder="SEARCH MOVIES"
-            name="inputMovie"
-            value={this.state.inputMovie}
+      <section className='search-input-box'>
+        <form className='search-input-field'>
+            <input
+            className='search-field'
+            type='text'
+            placeholder='SEARCH MOVIES'
+            name='search bar'
+            value={this.state.value}
             onChange={this.handleChange}
-          />
-          <button className="search-btn" onClick={this.handleClick}>
-            clear
-          </button>
+            />
+            <button className="search-btn" onClick={this.handleClick}>clear</button>
         </form>
       </section>
     );
