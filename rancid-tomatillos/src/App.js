@@ -59,8 +59,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state)
-    console.log(this.state.setMovies)
     return (
       <main className="main-page">
         <div className="main-page-header">

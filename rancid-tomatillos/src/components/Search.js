@@ -6,7 +6,7 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
+      searchTerm: "",
     };
   }
 
@@ -30,7 +30,7 @@ class Search extends React.Component {
             type='text'
             placeholder='SEARCH MOVIES'
             name='search bar'
-            value={this.state.value}
+            searchTerm={this.state.searchTerm}
             onChange={this.handleChange}
             />
             <button className="search-btn" onClick={this.handleClick}>clear</button>
