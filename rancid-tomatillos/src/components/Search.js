@@ -12,12 +12,12 @@ class Search extends React.Component {
 
   handleChange = (event) => {
     event.preventDefault()
-    this.setState({value: event.target.value})
-    this.props.searchMovies(this.state.value);
+    this.setState({searchTerm: event.target.value})
+    this.props.searchMovies(this.state.searchTerm);
 }
 
   handleClick = () => {
-    this.setState({value: ""})
+    this.setState({searchTerm: ""})
     this.props.searchMovies("");
   }
 
@@ -30,7 +30,7 @@ class Search extends React.Component {
             type='text'
             placeholder='SEARCH MOVIES'
             name='search bar'
-            searchTerm={this.state.searchTerm}
+            value={this.state.searchTerm}
             onChange={this.handleChange}
             />
             <button className="search-btn" onClick={this.handleClick}>clear</button>
