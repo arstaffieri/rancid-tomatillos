@@ -72,17 +72,17 @@ describe("movie details", () => {
     cy.contains("$384,571,691.00");
   });
 
-  it('should have back home button', () => {
+  it("should have back home button", () => {
     cy.visit("http://localhost:3000/")
-    .get(".poster-container")
-    .first()
-    .click()
-    .url()
-    .should("include", "/436270")
-    .get('.home-button')
-    .first()
-    .click()
-    .url()
-    .should('include', "/")
-  })
+      .get(".poster-container")
+      .first()
+      .click()
+      .url()
+      .should("include", "/436270")
+      .get(".home-button")
+      .first()
+      .click()
+      .url()
+      .should("include", "/");
+  });
 });

@@ -16,7 +16,6 @@ class App extends React.Component {
       setMovies: "",
       errors: "",
       isLoading: false,
-      isClicked: false
     };
   }
 
@@ -52,26 +51,21 @@ class App extends React.Component {
     this.setState({ movies: filteredMovies });
   };
 
-  handleErrorClick = (value) => {
-    this.setState({isClicked: value})
-  }
-
-
-
   render() {
     return (
       <main className="main-page">
         <div className="main-page-header">
           <h1>Reel Laughs Movie Database</h1>
         </div>
-        {(document.URL === 'http://localhost:3000/' || document.URL.includes('http://localhost:3000/movies/')) && 
-        <Link to="/" className="search-movies-link">
-          <Search
-            searchMovies={this.searchMovies}
-            movies={this.state.setMovies}
-          />
-        </Link>
-        }
+        {(document.URL === "http://localhost:3000/" ||
+          document.URL.includes("http://localhost:3000/movies/")) && (
+          <Link to="/" className="search-movies-link">
+            <Search
+              searchMovies={this.searchMovies}
+              movies={this.state.setMovies}
+            />
+          </Link>
+        )}
         {this.state.errors && (
           <h2 className="error-message">{this.state.errors}</h2>
         )}
@@ -103,7 +97,7 @@ class App extends React.Component {
               );
             }}
           ></Route>
-          <Route exact path="/*" render={() => <Error clicked={this.handleErrorClick}/>}></Route>
+          <Route exact path="/*" render={() => <Error />}></Route>
         </Switch>
       </main>
     );

@@ -3,6 +3,7 @@ import "./Details.css";
 import { getSingleMovie } from "../apiCalls";
 import * as dayjs from "dayjs";
 import Home from "./Home";
+import PropTypes from "prop-types";
 
 class Details extends React.Component {
   constructor() {
@@ -10,7 +11,6 @@ class Details extends React.Component {
     this.state = {
       singleMovie: {},
       error: "",
-      path: ''
     };
   }
 
@@ -26,7 +26,6 @@ class Details extends React.Component {
           error: error.message,
         });
       });
-     
   }
   changeReview = () => {
     let stars = "";
@@ -70,12 +69,16 @@ class Details extends React.Component {
             <p>Revenue: {formatter.format(this.state.singleMovie.revenue)}</p>
           )}
         </section>
-        {!this.props.singleMovie && 
-          <Home inputMovie={this.props.inputMovie}/>
-        }
+        {!this.props.singleMovie && <Home inputMovie={this.props.inputMovie} />}
       </div>
     );
   }
 }
 
 export default Details;
+
+Details.propTypes = {
+  MovieID: PropTypes.number.isRequired,
+  singleMovie: PropTypes.object.isRequired,
+  inputMovie: PropTypes.string.isRequired
+};
