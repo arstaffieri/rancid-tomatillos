@@ -40,7 +40,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">Roadmap</a></li>
   </ol>
 </details>
 
@@ -50,6 +49,10 @@
 
 
 
+
+
+
+https://user-images.githubusercontent.com/107894408/218195958-066435e4-1045-4045-ad82-69567cbc32bb.mp4
 
 
 
@@ -121,11 +124,8 @@ See the [open issues](https://github.com/arstaffieri/rancid-tomatillos).
 [react-url]: https://reactjs.org/
 [mocha]: https://img.shields.io/badge/Mocha-FF2D20?style=for-the-badge&logo=mocha&logoColor=white
 [mocha-url]: https://mochajs.org/
-[Cypress]: https://img.shields.io/badge/-Cypress-purple
+[Cypress]: https://img.shields.io/badge/CYPRESS-000000?style=for-the-badge&logo=cypress&logoColor=purple
 [Cypress-url]: https://www.cypress.io/
-
-
-
 [chai]: https://img.shields.io/badge/Chai-20232A?style=for-the-badge&logo=chai&logoColor=61DAFB
 [chai-url]: https://www.chaijs.com/
 [webpack]: https://img.shields.io/badge/Webpack-563D7C?style=for-the-badge&logo=webpack&logoColor=white

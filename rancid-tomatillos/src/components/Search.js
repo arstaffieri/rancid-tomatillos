@@ -31,6 +31,7 @@ class Search extends React.Component {
             className="search-form"
             type="text"
             placeholder="SEARCH MOVIES"
+
             value={this.state.searchTerm}
             onChange={this.handleChange}
           />
