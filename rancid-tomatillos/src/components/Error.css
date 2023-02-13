@@ -1,21 +1,19 @@
 .error-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    flex-direction: column-reverse;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  flex-direction: column-reverse;
 }
 
 .error-image {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .home-wrapper {
-    margin-left: 45px;
+  margin-left: 45px;
 }
-
-

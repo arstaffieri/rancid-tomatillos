@@ -4,7 +4,7 @@
     margin-left: 45px;
 }
 
-.search-input-field {
+.search-input-form {
     height: 100%;
     width: 100%;
     display: flex;
@@ -13,7 +13,7 @@
     
 }
 
-.search-field {
+.search-form {
     height: 100%;
     width: 70%;
     box-shadow: rgba(255, 254, 254, 0.519) 0px 54px 55px, rgb(255, 254, 254, 0.519) 0px -12px 30px, rgba(255, 254, 254, 0.519) 0px 4px 6px, rgba(255, 254, 254, 0.519) 0px 12px 13px, rgba(255, 254, 254, 0.519) 0px -3px 5px;
